@@ -1,0 +1,30 @@
+<div class="container alert alert-light">
+	<h2>Listado de Artículos</h2>
+	<div>
+		<%= link_to 'Agregar Artículo',  new_article_path , class:'btn btn-primary'%>
+	</div>
+	<br>
+	<% flash.each do |key, value| %>
+		<p><%=value%></p>
+	<% end %>
+	<table class="table table-striped">
+		 <thead>
+    		<tr class="table-primary">
+      			<th scope="col">#</th>
+      			<th scope="col">Título</th>
+      			<th scope="col">Contenido</th>
+     			<th scope="col">Publicado</th>
+    		</tr>
+  		</thead>
+		<tbody>
+			<% @articles.each do |a| %>
+				<tr>
+					<td><%= a.id %></td>
+					<td><%= a.titulo%></td>
+					<td><%= a.contenido%></td>
+					<td><%= a.publicado%></td>						
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

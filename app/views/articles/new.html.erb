@@ -1,0 +1,25 @@
+
+<div class="container alert alert-secondary col-8">
+	<h2>Formulario Para Agregar Artículos</h2>
+
+	<%= form_for @articles, url:{action: :create} do |data| %>
+		<div class="col-5">
+			<label>Título:</label>
+			<%= data.text_field :titulo,class:'form-control' %>	
+		</div>
+		<div class="row"><br></div>
+		<div class="col-5">
+			<label>Contenido:</label>
+			<%= data.text_field :contenido,class:'form-control' %>	
+		</div>
+		<div class="row"><br></div>
+		<div class="col-5">
+			<label>Publicado:</label>
+			<%= data.text_field :publicado,class:'form-control'%>	
+		</div>
+		<div class="row"><br></div>
+		<div class="col-5">
+			<%= data.submit 'Crear Artículo',class:'btn btn-primary' %>	
+		</div>
+	<% end %>
+</div>
