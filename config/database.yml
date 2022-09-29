@@ -29,10 +29,7 @@ test:
   database: articulos1_test
 
 production:
-  <<: *default
-  database: articulos1_production
-  username: articulos1
-  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+url: <%= ENV['DATABASE_URL'] %>
 
 
 
