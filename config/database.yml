@@ -13,17 +13,29 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: carlos006006***
-  host: 127.0.0.1
-  socket: /var/run/mysqld/mysqld.sock
-
 
 development:
   <<: *default
-  database: articulos1
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: articulos1_development
+
+test:
+  <<: *default
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: articulos1_test
+
 production:
-    url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  <<: *default
+  database: articulos1_production
+  username: articulos1
+  url: <%= ENV['DATABASE_URL'] %>
+
+
+  
 
 
 
